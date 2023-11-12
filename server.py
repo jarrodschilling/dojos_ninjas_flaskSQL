@@ -1,4 +1,4 @@
-from flask_app.controllers import app
+from flask_app.controllers import dojos, ninjas
 from flask_app import app
 
 if __name__=="__main__":

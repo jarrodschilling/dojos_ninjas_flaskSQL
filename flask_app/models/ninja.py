@@ -1,6 +1,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 #books
 class Ninja:
+    db = 'dojos_and_ninjas_schema'
     def __init__(self, data):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -16,7 +17,7 @@ class Ninja:
         query = "SELECT * FROM ninjas;"
         results = connectToMySQL(cls.db).query_db(query)
         ninjas = []
-        for ninja in ninjas:
+        for ninja in results:
             ninjas.append(cls(ninja))
         return ninjas
     

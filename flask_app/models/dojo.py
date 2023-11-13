@@ -21,6 +21,13 @@ class Dojo:
         return dojos
     
     @classmethod
+    def dojo_name(cls, dojo_id):
+        query = "SELECT * FROM dojos WHERE id = %(id)s;"
+        data = {'id': dojo_id}
+        results = connectToMySQL(cls.db).query_db(query, data)
+        return results[0]
+    
+    @classmethod
     def show_one_with_ninjas(cls, dojo_id):
         query = "SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id = dojos.id WHERE dojos.id = %(id)s;"
         data = {'id': dojo_id}
@@ -38,4 +45,13 @@ class Dojo:
                 "updated_at": row['ninjas.updated_at'],
             }
             dojo.ninjas.append(ninja.Ninja(ninja_data))
+
         return dojo.ninjas
+    
+    @classmethod
+    def create_dojo(cls, dojo_data):
+        query = """
+            INSERT INTO dojos (name)
+            VALUES (%(name)s)
+            ;"""
+        return connectToMySQL(cls.db).query_db(query, dojo_data)

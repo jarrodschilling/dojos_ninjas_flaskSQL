@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dojo Show</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css') }}">
 </head>
 <body>
+    <h1 style="text-align: left; margin-left: 50px;">{{ dojo_name.name }} Ninjas</h1>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -17,12 +20,13 @@
         <tbody>
             {% for ninja in dojo %}
             <tr>
-                <td>ninja.first_name</td>
-                <td>ninja.last_name</td>
-                <td>ninja.age</td>
+                <td>{{ ninja.first_name }}</td>
+                <td>{{ ninja.last_name }}</td>
+                <td>{{ ninja.age }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <a href="{{ url_for ('show_all_dojos')}}" style="text-align: left; margin-left: 50px;">Home</a>
 </body>
 </html>

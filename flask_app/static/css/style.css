@@ -42,3 +42,7 @@ table {
 h3 {
     margin: 30px 10px;
 }
+
+.table-striped {
+    max-width: 40%;
+}

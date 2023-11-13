@@ -12,7 +12,8 @@ h1 {
 }
 
 .js-btn {
-    max-width: 20%;
+    max-width: 40%;
+    margin-top: 10px;
 }
 
 table {
@@ -45,4 +46,13 @@ h3 {
 
 .table-striped {
     max-width: 40%;
+}
+
+.bg-blue {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.adj-width {
+    max-width: 80%;
 }
